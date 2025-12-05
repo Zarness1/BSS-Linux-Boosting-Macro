@@ -3,10 +3,12 @@ import os
 import sys
 import subprocess
 
-LOCAL_BIN = os.path.expanduser("~/.local/bin/")
-MAIN_FILE = "main"
-TARGET_PATH = os.path.join(LOCAL_BIN, MAIN_FILE)
+# ---------------- File Paths ---------------- #
+LOCAL_BIN = os.path.expanduser("~/.local/bin/LBM/")
+GUI_FILE = "GUI"
+GUI_PATH = os.path.join(LOCAL_BIN, GUI_FILE)
 
+# ---------------- Functions ---------------- #
 def help():
     print("""
 Usage: LBM [flag]
@@ -15,11 +17,12 @@ Flags:
   -main         Run the macro for main account
 """)
 
-def run_main_macro(extra_args):
-    if not os.path.exists(TARGET_PATH):
-        print(f"Error: Macro file not found at {TARGET_PATH}")
+def run(args):
+    if not os.path.exists(GUI_PATH):
+        print(f"Error: Macro GUI file not found at {GUI_PATH}")
         return
-    subprocess.run(["python3", TARGET_PATH] + extra_args)
+    
+    subprocess.run(["python3", GUI_PATH] + args)
 
 def main():
     if len(sys.argv) == 1:
@@ -32,11 +35,12 @@ def main():
         help()
 
     elif flag == "-main":
-        run_main_macro(sys.argv[2:])
+        run(sys.argv[2:])
 
     else:
         print(f"Unknown flag: {flag}")
         help()
 
+# ---------------- Execute ---------------- #
 if __name__ == "__main__":
     main()
