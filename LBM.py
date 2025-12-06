@@ -12,7 +12,7 @@ GUI_PATH = os.path.join(LOCAL_BIN, GUI_FILE)
 def help():
     print("""
 Usage: LBM [arg]
-Flags:
+Args:
   -h            Show this help message
   -main         Run the macro for main account
 """)
