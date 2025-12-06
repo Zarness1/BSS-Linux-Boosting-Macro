@@ -11,7 +11,7 @@ GUI_PATH = os.path.join(LOCAL_BIN, GUI_FILE)
 # ---------------- Functions ---------------- #
 def help():
     print("""
-Usage: LBM [flag]
+Usage: LBM [arg]
 Flags:
   -h            Show this help message
   -main         Run the macro for main account
@@ -26,19 +26,19 @@ def run(args):
 
 def main():
     if len(sys.argv) == 1:
-        print("No flag provided. Use LBM -h for help.")
+        print("No argument provided. Use LBM -h for help.")
         return
     
-    flag = sys.argv[1]
+    arg = sys.argv[1]
 
-    if flag == "-h":
+    if arg == "-h":
         help()
 
-    elif flag == "-main":
+    elif arg == "-main":
         run(sys.argv[2:])
 
     else:
-        print(f"Unknown flag: {flag}")
+        print(f"Unknown argument: {arg}")
         help()
 
 # ---------------- Execute ---------------- #
