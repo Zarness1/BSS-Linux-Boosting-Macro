@@ -61,7 +61,7 @@ def main():
     save_btn = ttk.Button(button_frame, text="Save (F4)", command=lambda: LBM.save_settings(slots), style="TButton")
     save_btn.grid(row=1, column=1, padx=18, pady=8)
 
-    LBM.create_default_INI(slots)
+    LBM.create_INI(slots)
     LBM.load_settings(slots)
 
     LBM.setup_hotkeys(slots, root)

@@ -111,12 +111,13 @@ def save_settings(slots):
         else:
             setting_save_popup("Settings file created", f"Settings config created at:\n{CONFIG_FILE}")
 
-def create_default_INI(slots):
+def create_INI(slots):
     global SF_S
     SF_S = 1
     if not os.path.exists(CONFIG_FILE):
         SF_S = 0
         save_settings(slots)
+        SF_S = 1
 
 def load_settings(slots):
     if not os.path.exists(CONFIG_FILE):
